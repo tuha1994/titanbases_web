@@ -4,7 +4,59 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Pure black background with teal/purple accents */
+  /* Light mode colors - clean white background with teal/purple accents */
+  --background: oklch(1 0 0); /* White */
+  --foreground: oklch(0.145 0 0); /* Dark gray for text */
+
+  --card: oklch(0.99 0 0); /* Off-white cards */
+  --card-foreground: oklch(0.145 0 0);
+
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+
+  /* Teal primary #5BBFCE */
+  --primary: oklch(0.72 0.08 210);
+  --primary-foreground: oklch(1 0 0);
+
+  /* Neon Purple secondary #826DA8 */
+  --secondary: oklch(0.55 0.1 290);
+  --secondary-foreground: oklch(1 0 0);
+
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+
+  /* Gradient accent #69A0BF */
+  --accent: oklch(0.65 0.07 220);
+  --accent-foreground: oklch(1 0 0);
+
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(1 0 0);
+
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.72 0.08 210 / 0.5);
+
+  /* Chart colors using gradient palette */
+  --chart-1: oklch(0.72 0.08 210); /* Teal */
+  --chart-2: oklch(0.55 0.1 290); /* Purple */
+  --chart-3: oklch(0.65 0.07 220); /* #69A0BF */
+  --chart-4: oklch(0.58 0.06 250); /* #7082B0 */
+  --chart-5: oklch(0.6 0.08 280); /* #847DB1 */
+
+  --radius: 1rem;
+
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.72 0.08 210);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.145 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.72 0.08 210 / 0.5);
+}
+
+/* Dark mode colors - pure black background with teal/purple accents */
+.dark {
   --background: oklch(0 0 0); /* Pure Black #000000 */
   --foreground: oklch(1 0 0); /* Pure White */
 
@@ -43,8 +95,6 @@
   --chart-3: oklch(0.65 0.07 220); /* #69A0BF */
   --chart-4: oklch(0.58 0.06 250); /* #7082B0 */
   --chart-5: oklch(0.6 0.08 280); /* #847DB1 */
-
-  --radius: 1rem;
 
   --sidebar: oklch(0 0 0 / 0.8);
   --sidebar-foreground: oklch(1 0 0);
@@ -129,4 +179,10 @@
   border: 1px solid oklch(1 0 0 / 0.1);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+}
+
+/* Dark mode specific glass effect */
+.dark .glass {
+  background: oklch(1 0 0 / 0.05);
+  border: 1px solid oklch(1 0 0 / 0.1);
 }

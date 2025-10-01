@@ -1,28 +1,66 @@
 "use client"
 
+import type React from "react"
+
 import { motion } from "framer-motion"
-import { ArrowRight, Cloud, Shield, Sparkles } from "lucide-react"
+import { ArrowRight, Cloud, Shield, Sparkles, HeadphonesIcon, TrendingUp } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { useLanguage } from "@/hooks/use-language"
 
-const features = [
-  {
-    icon: Cloud,
-    en: "Cloud Migration & Modernization",
-    vi: "Di chuyển & Hiện đại hóa Cloud",
-  },
-  {
-    icon: Shield,
-    en: "Secured Dev & Operations at Scale",
-    vi: "Phát triển & Vận hành An toàn Quy mô lớn",
-  },
-  {
-    icon: Sparkles,
-    en: "Data & GenAI Innovations",
-    vi: "Đổi mới Dữ liệu & GenAI",
-  },
-]
+const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+  Cloud,
+  Shield,
+  Sparkles,
+  HeadphonesIcon,
+  TrendingUp,
+}
 
-export function HeroSection() {
+interface HeroContent {
+  title_en: string
+  title_vi: string
+  subtitle_en: string
+  subtitle_vi: string
+  description_en: string
+  description_vi: string
+  cta_primary_text_en: string
+  cta_primary_text_vi: string
+  cta_primary_url: string
+  cta_secondary_text_en: string
+  cta_secondary_text_vi: string
+  cta_secondary_url: string
+}
+
+interface FeatureCard {
+  title_en: string
+  title_vi: string
+  description_en: string
+  description_vi: string
+  icon_name: string
+}
+
+interface HeroSectionProps {
+  heroContent: HeroContent | null
+  features: FeatureCard[]
+}
+
+export function HeroSection({ heroContent, features }: HeroSectionProps) {
+  const { language } = useLanguage()
+
+  const content = heroContent || {
+    title_en: "Vietnam-Built. World-Scale Cloud.",
+    title_vi: "Xây dựng tại Việt Nam. Cloud Quy mô Thế giới.",
+    subtitle_en: "Secure, scalable infrastructure. Backed by leading cloud partners.",
+    subtitle_vi: "Hạ tầng an toàn, mở rộng linh hoạt. Hậu thuẫn bởi các đối tác cloud hàng đầu.",
+    description_en: "",
+    description_vi: "",
+    cta_primary_text_en: "Contact Us",
+    cta_primary_text_vi: "Liên hệ",
+    cta_primary_url: "#contact",
+    cta_secondary_text_en: "View Case Studies",
+    cta_secondary_text_vi: "Xem case study",
+    cta_secondary_url: "#insights",
+  }
+
   return (
     <section className="section-hero relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden" id="cloud">
       {/* Spotlight Background */}
@@ -31,7 +69,6 @@ export function HeroSection() {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left Block - Content */}
           <motion.div
             initial={{ opacity: 0, y: 24, filter: "blur(6px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -40,44 +77,49 @@ export function HeroSection() {
           >
             <div className="space-y-4">
               <h1 className="text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-balance">
-                <span className="text-white">Vietnam-Built.</span>
-                <br />
                 <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
-                  World-Scale Cloud.
+                  {language === "en" ? content.title_en : content.title_vi}
                 </span>
               </h1>
               <p className="text-lg lg:text-xl text-white/70 leading-relaxed text-pretty max-w-xl">
-                Secure, scalable infrastructure. Backed by leading cloud partners.
+                {language === "en" ? content.subtitle_en : content.subtitle_vi}
               </p>
-              <p className="text-base text-white/50 leading-relaxed text-pretty max-w-xl">
-                Hạ tầng an toàn, mở rộng linh hoạt. Hậu thuẫn bởi các đối tác cloud hàng đầu.
-              </p>
+              {content.description_en && (
+                <p className="text-base text-white/50 leading-relaxed text-pretty max-w-xl">
+                  {language === "en" ? content.description_en : content.description_vi}
+                </p>
+              )}
             </div>
 
-            {/* Feature Cards */}
             <div className="grid grid-cols-1 gap-4">
-              {features.map((feature, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.96 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-                  className="glass rounded-2xl p-6 hover:border-primary/50 transition-all group"
-                >
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 group-hover:from-primary/30 group-hover:to-secondary/30 transition-all">
-                      <feature.icon className="h-6 w-6 text-primary" />
+              {features.map((feature, index) => {
+                const Icon = iconMap[feature.icon_name] || Cloud
+                return (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, scale: 0.96 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
+                    className="glass rounded-2xl p-6 hover:border-primary/50 transition-all group"
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="p-3 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 group-hover:from-primary/30 group-hover:to-secondary/30 transition-all">
+                        <Icon className="h-6 w-6 text-primary" />
+                      </div>
+                      <div>
+                        <h3 className="text-base font-semibold text-white mb-1">
+                          {language === "en" ? feature.title_en : feature.title_vi}
+                        </h3>
+                        <p className="text-sm text-white/60">
+                          {language === "en" ? feature.description_en : feature.description_vi}
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="text-base font-semibold text-white mb-1">{feature.en}</h3>
-                      <p className="text-sm text-white/60">{feature.vi}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
+                  </motion.div>
+                )
+              })}
             </div>
 
-            {/* CTA Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
@@ -89,8 +131,8 @@ export function HeroSection() {
                 className="bg-gradient-to-r from-primary to-secondary text-black font-semibold hover:shadow-lg hover:shadow-primary/50 transition-all"
                 asChild
               >
-                <a href="#contact">
-                  Contact Us / Liên hệ
+                <a href={content.cta_primary_url}>
+                  {language === "en" ? content.cta_primary_text_en : content.cta_primary_text_vi}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
               </Button>
@@ -100,7 +142,9 @@ export function HeroSection() {
                 className="border-white/20 text-white hover:border-primary hover:text-primary transition-all bg-transparent"
                 asChild
               >
-                <a href="#insights">View Case Studies / Xem case study</a>
+                <a href={content.cta_secondary_url}>
+                  {language === "en" ? content.cta_secondary_text_en : content.cta_secondary_text_vi}
+                </a>
               </Button>
             </motion.div>
           </motion.div>

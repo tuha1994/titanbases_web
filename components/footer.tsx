@@ -2,20 +2,22 @@
 
 export function Footer() {
   return (
-    <footer className="relative border-t border-white/10 bg-black" id="contact">
+    <footer className="relative border-t border-border bg-background" id="contact">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Left Column - Company Info */}
           <div className="space-y-6">
-            <div className="text-xs uppercase tracking-wider text-white/50 font-medium">Customer Service Center</div>
+            <div className="text-xs uppercase tracking-wider text-muted-foreground font-medium">
+              Customer Service Center
+            </div>
 
             <div className="space-y-2">
-              <p className="text-sm text-white/90 leading-relaxed">Titanbases Technology Co., Ltd.</p>
-              <p className="text-sm text-white/70 leading-relaxed">Công ty TNHH Công Nghệ Titanbases</p>
-              <p className="text-sm text-white/70 leading-relaxed">
-                CEO: <span className="text-white/90">Nguyen Tuan Long</span>
+              <p className="text-sm text-foreground/90 leading-relaxed">Titanbases Technology Co., Ltd.</p>
+              <p className="text-sm text-muted-foreground leading-relaxed">Công ty TNHH Công Nghệ Titanbases</p>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                CEO: <span className="text-foreground/90">Han Anh Tu</span>
               </p>
-              <p className="text-sm text-white/70 leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 Address:{" "}
                 <a
                   href="https://maps.google.com/?q=112+Me+Tri,+Nam+Tu+Liem,+Hanoi"
@@ -28,7 +30,7 @@ export function Footer() {
               </p>
             </div>
 
-            <div className="pt-6 text-xs text-white/50 uppercase tracking-wider">
+            <div className="pt-6 text-xs text-muted-foreground uppercase tracking-wider">
               Copyright 2025 Titanbases Technology Co., Ltd. All Rights Reserved
             </div>
           </div>
