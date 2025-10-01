@@ -74,7 +74,7 @@ export function ContactSection() {
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-balance">
               Get in <span className="text-primary">Touch</span>
             </h2>
-            <p className="text-white/70 text-lg max-w-2xl mx-auto text-pretty">
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto text-pretty">
               Have a question or want to discuss your cloud infrastructure needs? We're here to help.
             </p>
           </div>
@@ -84,7 +84,7 @@ export function ContactSection() {
             <div className="space-y-8">
               <div>
                 <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
-                <p className="text-white/70 leading-relaxed mb-8">
+                <p className="text-muted-foreground leading-relaxed mb-8">
                   Reach out to our team of cloud experts. We'll respond within 24 hours.
                 </p>
               </div>
@@ -95,8 +95,11 @@ export function ContactSection() {
                     <Mail className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <div className="text-sm text-white/50 mb-1">Email</div>
-                    <a href="mailto:contact@titanbases.com" className="text-white hover:text-primary transition-colors">
+                    <div className="text-sm text-muted-foreground mb-1">Email</div>
+                    <a
+                      href="mailto:contact@titanbases.com"
+                      className="text-foreground hover:text-primary transition-colors"
+                    >
                       contact@titanbases.com
                     </a>
                   </div>
@@ -107,8 +110,8 @@ export function ContactSection() {
                     <Phone className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <div className="text-sm text-white/50 mb-1">Phone</div>
-                    <a href="tel:+84123456789" className="text-white hover:text-primary transition-colors">
+                    <div className="text-sm text-muted-foreground mb-1">Phone</div>
+                    <a href="tel:+84123456789" className="text-foreground hover:text-primary transition-colors">
                       +84 123 456 789
                     </a>
                   </div>
@@ -119,12 +122,12 @@ export function ContactSection() {
                     <MapPin className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <div className="text-sm text-white/50 mb-1">Address</div>
+                    <div className="text-sm text-muted-foreground mb-1">Address</div>
                     <a
                       href="https://maps.google.com/?q=112+Me+Tri,+Nam+Tu+Liem,+Hanoi"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-white hover:text-primary transition-colors"
+                      className="text-foreground hover:text-primary transition-colors"
                     >
                       112 Me Tri, Nam Tu Liem, Hanoi
                     </a>
@@ -133,20 +136,20 @@ export function ContactSection() {
               </div>
 
               {/* Business Hours */}
-              <div className="pt-6 border-t border-white/10">
-                <h4 className="text-sm font-semibold mb-3 text-white/90">Business Hours</h4>
-                <div className="space-y-2 text-sm text-white/70">
+              <div className="pt-6 border-t border-border">
+                <h4 className="text-sm font-semibold mb-3 text-foreground">Business Hours</h4>
+                <div className="space-y-2 text-sm text-muted-foreground">
                   <div className="flex justify-between">
                     <span>Monday - Friday</span>
-                    <span className="text-white/90">9:00 AM - 6:00 PM</span>
+                    <span className="text-foreground">9:00 AM - 6:00 PM</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Saturday</span>
-                    <span className="text-white/90">9:00 AM - 1:00 PM</span>
+                    <span className="text-foreground">9:00 AM - 1:00 PM</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Sunday</span>
-                    <span className="text-white/90">Closed</span>
+                    <span className="text-foreground">Closed</span>
                   </div>
                 </div>
               </div>
@@ -157,7 +160,7 @@ export function ContactSection() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <label htmlFor="name" className="text-sm font-medium text-white/90">
+                    <label htmlFor="name" className="text-sm font-medium text-foreground">
                       Name *
                     </label>
                     <Input
@@ -167,12 +170,12 @@ export function ContactSection() {
                       onChange={handleChange}
                       required
                       placeholder="Your name"
-                      className="bg-white/5 border-white/10 focus:border-primary text-white placeholder:text-white/40"
+                      className="bg-muted/50 border-border focus:border-primary text-foreground placeholder:text-muted-foreground"
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <label htmlFor="email" className="text-sm font-medium text-white/90">
+                    <label htmlFor="email" className="text-sm font-medium text-foreground">
                       Email *
                     </label>
                     <Input
@@ -183,14 +186,14 @@ export function ContactSection() {
                       onChange={handleChange}
                       required
                       placeholder="your@email.com"
-                      className="bg-white/5 border-white/10 focus:border-primary text-white placeholder:text-white/40"
+                      className="bg-muted/50 border-border focus:border-primary text-foreground placeholder:text-muted-foreground"
                     />
                   </div>
                 </div>
 
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <label htmlFor="phone" className="text-sm font-medium text-white/90">
+                    <label htmlFor="phone" className="text-sm font-medium text-foreground">
                       Phone
                     </label>
                     <Input
@@ -200,12 +203,12 @@ export function ContactSection() {
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="+84 123 456 789"
-                      className="bg-white/5 border-white/10 focus:border-primary text-white placeholder:text-white/40"
+                      className="bg-muted/50 border-border focus:border-primary text-foreground placeholder:text-muted-foreground"
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <label htmlFor="company" className="text-sm font-medium text-white/90">
+                    <label htmlFor="company" className="text-sm font-medium text-foreground">
                       Company
                     </label>
                     <Input
@@ -214,13 +217,13 @@ export function ContactSection() {
                       value={formData.company}
                       onChange={handleChange}
                       placeholder="Your company"
-                      className="bg-white/5 border-white/10 focus:border-primary text-white placeholder:text-white/40"
+                      className="bg-muted/50 border-border focus:border-primary text-foreground placeholder:text-muted-foreground"
                     />
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="message" className="text-sm font-medium text-white/90">
+                  <label htmlFor="message" className="text-sm font-medium text-foreground">
                     Message *
                   </label>
                   <Textarea
@@ -231,18 +234,18 @@ export function ContactSection() {
                     required
                     placeholder="Tell us about your project or inquiry..."
                     rows={5}
-                    className="bg-white/5 border-white/10 focus:border-primary text-white placeholder:text-white/40 resize-none"
+                    className="bg-muted/50 border-border focus:border-primary text-foreground placeholder:text-muted-foreground resize-none"
                   />
                 </div>
 
                 {submitStatus === "success" && (
-                  <div className="p-4 rounded-lg bg-primary/20 border border-primary/30 text-sm text-white">
+                  <div className="p-4 rounded-lg bg-primary/20 border border-primary/30 text-sm text-foreground">
                     Thank you! We'll get back to you soon.
                   </div>
                 )}
 
                 {submitStatus === "error" && (
-                  <div className="p-4 rounded-lg bg-destructive/20 border border-destructive/30 text-sm text-white">
+                  <div className="p-4 rounded-lg bg-destructive/20 border border-destructive/30 text-sm text-foreground">
                     Something went wrong. Please try again.
                   </div>
                 )}
@@ -250,7 +253,7 @@ export function ContactSection() {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-primary hover:bg-primary/90 text-black font-semibold"
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
                 >
                   {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>

@@ -94,8 +94,8 @@ export function CompetencySection() {
                 onClick={() => setActiveFilter(filter.id)}
                 className={`chip px-8 py-3 rounded-full text-sm uppercase tracking-wider font-semibold transition-all ${
                   activeFilter === filter.id
-                    ? "glass border-primary text-white shadow-lg shadow-primary/30"
-                    : "bg-white/5 border-white/20 text-white/50 hover:text-white/80 hover:border-white/40"
+                    ? "glass border-primary text-primary shadow-lg shadow-primary/30"
+                    : "bg-muted/50 border-border text-muted-foreground hover:text-foreground hover:border-border/80"
                 }`}
               >
                 {filter.label}
@@ -107,15 +107,15 @@ export function CompetencySection() {
         {/* Carousel */}
         <div className="relative">
           {/* Gradient Fades */}
-          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
 
           {/* Navigation Buttons */}
           <Button
             variant="ghost"
             size="icon"
             onClick={() => scroll("left")}
-            className="absolute left-4 top-1/2 -translate-y-1/2 z-20 glass hover:border-primary/50 text-white"
+            className="absolute left-4 top-1/2 -translate-y-1/2 z-20 glass hover:border-primary/50 text-foreground"
           >
             <ChevronLeft className="h-6 w-6" />
           </Button>
@@ -123,7 +123,7 @@ export function CompetencySection() {
             variant="ghost"
             size="icon"
             onClick={() => scroll("right")}
-            className="absolute right-4 top-1/2 -translate-y-1/2 z-20 glass hover:border-primary/50 text-white"
+            className="absolute right-4 top-1/2 -translate-y-1/2 z-20 glass hover:border-primary/50 text-foreground"
           >
             <ChevronRight className="h-6 w-6" />
           </Button>
@@ -152,7 +152,7 @@ export function CompetencySection() {
                       className="w-full h-full object-contain"
                     />
                   </div>
-                  <p className="text-sm text-center text-white/80 font-medium leading-relaxed">{cert.name}</p>
+                  <p className="text-sm text-center text-foreground/80 font-medium leading-relaxed">{cert.name}</p>
                 </div>
               </motion.div>
             ))}

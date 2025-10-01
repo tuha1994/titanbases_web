@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
+import { useTheme } from "next-themes"
 
 const filters = [
   { id: "csp", en: "CSP", vi: "CSP" },
@@ -31,6 +32,7 @@ export function PartnersSection() {
   const [activeFilter, setActiveFilter] = useState("csp")
   const [currentIndex, setCurrentIndex] = useState(0)
   const itemsPerView = 6
+  const { resolvedTheme } = useTheme()
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + itemsPerView >= partners.length ? 0 : prev + 1))
@@ -41,7 +43,7 @@ export function PartnersSection() {
   }
 
   return (
-    <section className="section-partners relative py-24 overflow-hidden bg-[#0A0A0A]" id="partner">
+    <section className="section-partners relative py-24 overflow-hidden bg-background" id="partner">
       {/* Spotlight Background */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-gradient-radial from-primary/15 via-accent/10 to-transparent rounded-full blur-3xl pointer-events-none" />
 
@@ -64,11 +66,11 @@ export function PartnersSection() {
           >
             12
           </motion.div>
-          <p className="text-base lg:text-lg text-white/70 leading-relaxed mb-4">
+          <p className="text-base lg:text-lg text-foreground/70 leading-relaxed mb-4">
             We partner with the world's leading cloud service providers to deliver exceptional value and innovation to
             our customers.
           </p>
-          <p className="text-sm text-white/50 leading-relaxed">
+          <p className="text-sm text-muted-foreground leading-relaxed">
             Chúng tôi hợp tác với các nhà cung cấp dịch vụ cloud hàng đầu thế giới để mang lại giá trị và đổi mới vượt
             trội cho khách hàng.
           </p>
@@ -88,8 +90,9 @@ export function PartnersSection() {
               onClick={() => setActiveFilter(filter.id)}
               className={`chip px-6 py-3 rounded-full text-xs uppercase tracking-wider font-medium transition-all ${
                 activeFilter === filter.id
-                  ? "glass border-primary text-white shadow-lg shadow-primary/20"
-                  : "bg-white/5 border-white/20 text-white/50 hover:text-white/80 hover:border-white/40"
+                  ? "glass border-primary text-primary shadow-lg shadow-primary/20"
+                  : // Replace hardcoded colors with theme-aware classes
+                    "bg-muted/50 border-border text-muted-foreground hover:text-foreground hover:border-border/80"
               }`}
             >
               {filter.en}
@@ -101,17 +104,17 @@ export function PartnersSection() {
           {/* Navigation Arrows */}
           <button
             onClick={prevSlide}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full glass border-white/20 hover:border-primary/50 transition-all"
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full glass border-border hover:border-primary/50 transition-all"
             aria-label="Previous partners"
           >
-            <ChevronLeft className="h-6 w-6 text-white" />
+            <ChevronLeft className="h-6 w-6 text-foreground" />
           </button>
           <button
             onClick={nextSlide}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full glass border-white/20 hover:border-primary/50 transition-all"
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full glass border-border hover:border-primary/50 transition-all"
             aria-label="Next partners"
           >
-            <ChevronRight className="h-6 w-6 text-white" />
+            <ChevronRight className="h-6 w-6 text-foreground" />
           </button>
 
           {/* Carousel Container */}
@@ -154,7 +157,7 @@ export function PartnersSection() {
           <Button
             size="lg"
             variant="outline"
-            className="border-white/20 text-white hover:border-primary hover:text-primary transition-all bg-transparent"
+            className="border-border text-foreground hover:border-primary hover:text-primary transition-all bg-transparent"
             asChild
           >
             <a href="#competency">

@@ -73,8 +73,8 @@ export function InsightsSection() {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-balance">Insights</h2>
-          <p className="text-xl text-white/80 mb-2">Transform, Tomorrow, Together</p>
-          <p className="text-base text-white/60">Kiến tạo đổi mới cùng ngày mai</p>
+          <p className="text-xl text-foreground/80 mb-2">Transform, Tomorrow, Together</p>
+          <p className="text-base text-muted-foreground">Kiến tạo đổi mới cùng ngày mai</p>
         </motion.div>
 
         {/* Insights Grid */}
@@ -102,26 +102,26 @@ export function InsightsSection() {
 
                     {/* Type Label */}
                     <div className="absolute top-4 left-4">
-                      <span className="px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-black/50 backdrop-blur-sm text-white border border-white/20">
+                      <span className="px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-background/80 backdrop-blur-sm text-foreground border border-border">
                         {insight.type}
                       </span>
                     </div>
 
                     {/* External Link Icon */}
                     <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <div className="p-2 rounded-full bg-black/50 backdrop-blur-sm border border-white/20">
-                        <ExternalLink className="h-4 w-4 text-white" />
+                      <div className="p-2 rounded-full bg-background/80 backdrop-blur-sm border border-border">
+                        <ExternalLink className="h-4 w-4 text-foreground" />
                       </div>
                     </div>
                   </div>
 
                   {/* Content */}
                   <div className="p-6 space-y-3">
-                    <h3 className="text-lg font-semibold text-white leading-snug group-hover:text-primary transition-colors text-balance">
+                    <h3 className="text-lg font-semibold text-foreground leading-snug group-hover:text-primary transition-colors text-balance">
                       {insight.title}
                     </h3>
-                    <p className="text-sm text-white/60 leading-relaxed text-pretty">{insight.titleVi}</p>
-                    <div className="text-xs text-white/40 pt-2">
+                    <p className="text-sm text-muted-foreground leading-relaxed text-pretty">{insight.titleVi}</p>
+                    <div className="text-xs text-muted-foreground/60 pt-2">
                       {new Date(insight.date).toLocaleDateString("en-US", {
                         year: "numeric",
                         month: "long",
@@ -146,7 +146,7 @@ export function InsightsSection() {
           <Button
             size="lg"
             variant="outline"
-            className="border-white/20 text-white hover:border-primary hover:text-primary transition-all bg-transparent"
+            className="border-border text-foreground hover:border-primary hover:text-primary transition-all bg-transparent"
             asChild
           >
             <a href="#insights">

@@ -81,11 +81,11 @@ export function HeroSection({ heroContent, features }: HeroSectionProps) {
                   {language === "en" ? content.title_en : content.title_vi}
                 </span>
               </h1>
-              <p className="text-lg lg:text-xl text-white/70 leading-relaxed text-pretty max-w-xl">
+              <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed text-pretty max-w-xl">
                 {language === "en" ? content.subtitle_en : content.subtitle_vi}
               </p>
               {content.description_en && (
-                <p className="text-base text-white/50 leading-relaxed text-pretty max-w-xl">
+                <p className="text-base text-muted-foreground/70 leading-relaxed text-pretty max-w-xl">
                   {language === "en" ? content.description_en : content.description_vi}
                 </p>
               )}
@@ -107,10 +107,10 @@ export function HeroSection({ heroContent, features }: HeroSectionProps) {
                         <Icon className="h-6 w-6 text-primary" />
                       </div>
                       <div>
-                        <h3 className="text-base font-semibold text-white mb-1">
+                        <h3 className="text-base font-semibold text-foreground mb-1">
                           {language === "en" ? feature.title_en : feature.title_vi}
                         </h3>
-                        <p className="text-sm text-white/60">
+                        <p className="text-sm text-muted-foreground">
                           {language === "en" ? feature.description_en : feature.description_vi}
                         </p>
                       </div>
@@ -139,7 +139,7 @@ export function HeroSection({ heroContent, features }: HeroSectionProps) {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white/20 text-white hover:border-primary hover:text-primary transition-all bg-transparent"
+                className="border-border text-foreground hover:border-primary hover:text-primary transition-all bg-transparent"
                 asChild
               >
                 <a href={content.cta_secondary_url}>
