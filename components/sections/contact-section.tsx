@@ -97,10 +97,10 @@ export function ContactSection() {
                   <div>
                     <div className="text-sm text-muted-foreground mb-1">Email</div>
                     <a
-                      href="mailto:contact@titanbases.com"
+                      href="mailto:sales@titanbases.com"
                       className="text-foreground hover:text-primary transition-colors"
                     >
-                      contact@titanbases.com
+                      sales@titanbases.com
                     </a>
                   </div>
                 </div>
@@ -111,8 +111,8 @@ export function ContactSection() {
                   </div>
                   <div>
                     <div className="text-sm text-muted-foreground mb-1">Phone</div>
-                    <a href="tel:+84123456789" className="text-foreground hover:text-primary transition-colors">
-                      +84 123 456 789
+                    <a href="tel:+84 394 881 808" className="text-foreground hover:text-primary transition-colors">
+                      +84 394 881 808
                     </a>
                   </div>
                 </div>
