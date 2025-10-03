@@ -1,0 +1,5 @@
+cd /var/www/titanbases-cloud/titanbases_web
+git pull || true
+pnpm build || npm run build
+pm2 reload titanbases
+pm2 save
