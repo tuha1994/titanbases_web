@@ -15,7 +15,7 @@ export function Footer() {
               <p className="text-sm text-foreground/90 leading-relaxed">Titanbases Technology Co., Ltd.</p>
               <p className="text-sm text-muted-foreground leading-relaxed">Công ty TNHH Công Nghệ Titanbases</p>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                CEO: <span className="text-foreground/90">Han Anh Tu</span>
+                Phone: <span className="text-foreground/90">0394881808</span>
               </p>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 Address:{" "}
